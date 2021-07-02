@@ -1,0 +1,47 @@
+.Leads {
+    margin: 1rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .user-cards {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .user-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0.5rem 0.2rem;
+    width: 28rem;
+    min-height: 20rem;
+    border: 1px solid #333;
+  }
+  
+  .user-card > * {
+    margin: 0.5rem 0;
+  }
+  
+  .Message {
+    min-height: 4rem;
+  }
+  
+  .user-options {
+    display: flex;
+    justify-content: space-around;
+  }
+  .user-options > * {
+    background-color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
