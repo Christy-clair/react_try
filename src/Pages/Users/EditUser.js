@@ -19,21 +19,24 @@ const EditUser = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  
+
   useEffect(() => {
+    const loadUser = async () => {
+      const result = await axios.get(`http://localhost:3000/user/${id}`);
+      setUser(result.data);
+    };
     loadUser();
+    
   }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:3000/users/${id}`, user);
+    await axios.put(`http://localhost:3000/user/${id}`, user);
     history.push('/');
   };
 
-  const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3000/users/${id}`);
-    setUser(result.data);
-  };
-
+  
   return (
     <div className="Contact">
       <h1 style={{ textAlign: 'center', margin: '1rem auto' }}>Edit User</h1>

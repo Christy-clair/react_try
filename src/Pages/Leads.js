@@ -7,7 +7,7 @@ const Leads = () => {
   const [users, setUsers] = useState([]);
 
   const loadUsers = async () => {
-    const response = await fetch('http://localhost:3000/users');
+    const response = await fetch('http://localhost:3000/user');
     const data = await response.json();
     setUsers(data.reverse());
   };
@@ -17,7 +17,7 @@ const Leads = () => {
   }, []);
 
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:3000/users/${id}`);
+    await axios.delete(`http://localhost:3000/user/${id}`);
     loadUsers();
   };
 
@@ -33,7 +33,7 @@ const Leads = () => {
             <h3>Message: </h3>
             <p className="Message">{user.message}</p>
             <div className="user-options">
-              <Link to={`users/${user.id}`}>View</Link>
+              <Link to={`user/${user.id}`}>View</Link>
               <Link to={`/user/edit/${user.id}`}>Edit</Link>
               <Link
                 onClick={() => {

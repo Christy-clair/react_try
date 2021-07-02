@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './User.css';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const User = () => {
@@ -13,14 +13,17 @@ const User = () => {
 
   const { id } = useParams();
 
+  
+
   useEffect(() => {
+    const loadUser = async () => {
+      const result = await axios.get(`http://localhost:3000/user/${id}`);
+      setUser(result.data);
+    };
     loadUser();
   }, []);
 
-  const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3000/users/${id}`);
-    setUser(result.data);
-  };
+  
   return (
     <div className="Leads">
       <h1>User</h1>
